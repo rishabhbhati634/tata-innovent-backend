@@ -8,7 +8,11 @@ require("dotenv").config(); // ✅ MUST BE FIRST
 const app = express();
 
 // Middlewares
-app.use(cors());
+const allowedOrigins = ["https://test-ten-steel-87.vercel.app"]; // 👈 replace with actual Vercel URL
+app.use(cors({
+  origin: allowedOrigins,
+  credentials: true,
+}));
 app.use(express.json());
 
 // Routes
